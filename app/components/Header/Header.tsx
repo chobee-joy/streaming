@@ -1,10 +1,31 @@
-import { Bars3CenterLeftIcon } from '@heroicons/react/24/outline';
+'use client';
+
+import { useState } from 'react';
+import clsx from 'clsx';
+import Link from 'next/link';
+
+import AllMenu from './AllMenu';
 
 function Header() {
+  const [isMenuOpened, setIsMenuOpened] = useState(false);
   return (
-    <header className="sticky top-0 z-20 flex items-center justify-center text-white bg-black h-60 md:h-80">
-      <Bars3CenterLeftIcon className="absolute w-32 left-16" />
-      <h1>로고 이미지 필요</h1>
+    <header className="header">
+      <div className="inner">
+        <h1 className="logo">
+          <Link href={'/'}>로고</Link>
+        </h1>
+        <button
+          className={clsx('btn-menu', isMenuOpened && 'active')}
+          type="button"
+          onClick={() => setIsMenuOpened(!isMenuOpened)}
+        >
+          <i />
+          {/* <i>
+            <Bars3CenterLeftIcon />
+          </i> */}
+        </button>
+        <AllMenu isMenuOpened={isMenuOpened} />
+      </div>
     </header>
   );
 }

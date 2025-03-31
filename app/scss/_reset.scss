@@ -1,0 +1,299 @@
+html {
+  width: 100%;
+  height: 100%;
+  font-size: 0.052vw;
+}
+
+body {
+  position: relative;
+  height: 100%;
+  font-family: "Pretendard Variable", sans-serif;
+  font-weight: 400;
+  font-size: 16rem;
+  color: #000;
+  letter-spacing: -0.01em;
+  word-break: keep-all;
+  line-height: 1.2;
+  text-size-adjust: 100%;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
+}
+
+body,
+header,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+p,
+form,
+fieldset,
+table,
+tr,
+th,
+td,
+a,
+input,
+span,
+section,
+article,
+figure {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  word-break: keep-all;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+img,
+fieldset {
+  border: none;
+  vertical-align: top;
+}
+
+em {
+  font-style: normal;
+}
+
+legend,
+caption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  color: transparent;
+  width: 0;
+  height: 0;
+  text-indent: -9999px;
+}
+
+textarea,
+button {
+  vertical-align: middle;
+  font-family: Pretendard, sans-serif;
+}
+
+textarea {
+  color: inherit;
+  resize: none;
+  overflow-y: auto;
+  -ms-overflow-style: auto;
+}
+
+select {
+  font: inherit;
+  vertical-align: middle;
+  border: 0;
+  appearance: none;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+input,
+textarea {
+  vertical-align: middle;
+  border: 0;
+  background: transparent;
+  appearance: none;
+  box-shadow: none;
+}
+
+option {
+  padding: 10px;
+}
+
+/* input[type="text"], input[type="password"] {outline: 0;} */
+input[type="radio"],
+input[type="checkbox"] {
+  padding: 0;
+  height: auto;
+  font-size: 18px;
+  border: 0;
+  box-shadow: none;
+}
+
+input[type="text"]::-ms-clear {
+  display: none;
+}
+
+input {
+  &::input-placeholder {
+    font-family: Pretendard, sans-serif;
+  }
+
+  &::input-placeholder {
+    font-family: Pretendard, sans-serif;
+  }
+
+  &::placeholder {
+    font-family: Pretendard, sans-serif;
+  }
+
+  &[type="number"]::-webkit-outer-spin-button {
+    appearance: none;
+    margin: 0;
+  }
+
+  &[type="number"]::-webkit-inner-spin-button {
+    appearance: none;
+    margin: 0;
+  }
+
+  &:focus::input-placeholder {
+    color: transparent;
+  }
+
+  &:focus:input-placeholder {
+    color: transparent;
+  }
+
+  &:focus::input-placeholder {
+    color: transparent;
+  }
+
+  &:focus::placeholder {
+    color: transparent;
+  }
+}
+
+textarea {
+  &::input-placeholder {
+    font-family: Pretendard, sans-serif;
+  }
+
+  &:input-placeholder {
+    font-family: Pretendard, sans-serif;
+  }
+
+  &::input-placeholder {
+    font-family: Pretendard, sans-serif;
+  }
+
+  &::placeholder {
+    font-family: Pretendard, sans-serif;
+  }
+
+  &:focus::input-placeholder {
+    color: transparent;
+  }
+
+  &:focus:input-placeholder {
+    color: transparent;
+  }
+
+  &:focus::input-placeholder {
+    color: transparent;
+  }
+
+  &:focus::placeholder {
+    color: transparent;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+
+  &a:hover,
+  &a:focus,
+  &a:active {
+    text-decoration: none;
+  }
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  table-layout: fixed;
+}
+
+button {
+  overflow: visible;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  white-space: nowrap;
+  border: none;
+  cursor: pointer;
+  background: none;
+
+  &:active {
+    outline: none;
+  }
+
+  &::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+  }
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block;
+  position: relative;
+}
+
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+#skipNavi a {
+  position: fixed;
+  top: -9999px;
+  left: 0;
+  z-index: 151;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  color: #fff;
+  background: #e31d1a;
+}
+
+#skipNavi a:focus {
+  top: 0;
+}
+
+caption,
+legend,
+.hidden {
+  position: absolute;
+  left: -300px;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  background: none;
+  line-height: 0;
+  overflow: hidden;
+}
