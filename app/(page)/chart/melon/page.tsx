@@ -1,6 +1,6 @@
 import DetailList from './_components/DetailList';
 
-function StreamingPage() {
+function MelonPage() {
   return (
     <>
       <DetailList />
@@ -8,4 +8,4 @@ function StreamingPage() {
   );
 }
 
-export default StreamingPage;
+export default MelonPage;

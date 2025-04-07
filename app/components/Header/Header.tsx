@@ -1,13 +1,27 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+
+import { NAV } from '@/lib/constants/nav.constant';
 
 import AllMenu from './AllMenu';
-
 function Header() {
+  const pathName = usePathname();
   const [isMenuOpened, setIsMenuOpened] = useState(false);
+  const [twoDepthOpenedIdx, setTwoDepthOpenedIdx] = useState<number | null>(
+    null,
+  );
+  const handleTwoDepthOpen = (twoDepthIdx: number | null) => {
+    setTwoDepthOpenedIdx((prevIdx) =>
+      prevIdx === twoDepthIdx ? null : twoDepthIdx,
+    );
+  };
+  useEffect(() => {
+    setIsMenuOpened(false);
+  }, [pathName]);
   return (
     <header className="header">
       <div className="inner">
@@ -24,7 +38,39 @@ function Header() {
             <Bars3CenterLeftIcon />
           </i> */}
         </button>
-        <AllMenu isMenuOpened={isMenuOpened} />
+        <ul className="pc-menu">
+          {NAV?.map((oneDepth, oneIndex) => (
+            <li
+              className="one-depth"
+              key={`pcOneDepth${oneIndex}`}
+              onMouseEnter={() => handleTwoDepthOpen(oneIndex)}
+              onMouseLeave={() => handleTwoDepthOpen(null)}
+            >
+              <Link className="one-link f-bd4" href={oneDepth.path}>
+                {oneDepth.title}
+              </Link>
+              {oneDepth?.children && (
+                <div
+                  className={clsx(
+                    'one-list',
+                    twoDepthOpenedIdx === oneIndex && 'active',
+                  )}
+                >
+                  <ul className="two-depth">
+                    {oneDepth?.children.map((twoDepth, twoIndex) => (
+                      <li className="two-list" key={`pcTwoDepth${twoIndex}`}>
+                        <Link className="two-link f-bd4" href={twoDepth.path}>
+                          {twoDepth.title}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </li>
+          ))}
+        </ul>
+        <AllMenu isMenuOpened={isMenuOpened} pathName={pathName} />
       </div>
     </header>
   );

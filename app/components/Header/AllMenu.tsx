@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { NAV } from '@/lib/constants/nav.constant';
 interface AllMenuProps {
   isMenuOpened: boolean;
+  pathName: string;
 }
 function AllMenu({ isMenuOpened }: AllMenuProps) {
   const [twoDepthOpenedIdx, setTwoDepthOpenedIdx] = useState<number | null>(
@@ -18,36 +19,17 @@ function AllMenu({ isMenuOpened }: AllMenuProps) {
       prevIdx === twoDepthIdx ? null : twoDepthIdx,
     );
   };
-  const allMenuList = [
-    {
-      title: '가이드',
-      path: '/guide',
-      children: [
-        { title: '스트리밍 리스트', path: '/guide/list' },
-        { title: '다운로드', path: '/guide/download' },
-        { title: '다운로드', path: '/guide/download' },
-        { title: '다운로드', path: '/guide/download' },
-        { title: '다운로드', path: '/guide/download' },
-      ],
-    },
-    {
-      title: '투표',
-      path: '/guide',
-      children: [
-        { title: '투표', path: '/guide/list' },
-        { title: '투표', path: '/guide/download' },
-        { title: '투표', path: '/guide/download' },
-        { title: '투표', path: '/guide/download' },
-        { title: '투표', path: '/guide/download' },
-        { title: '투표', path: '/guide/download' },
-      ],
-    },
-  ];
+
+  useEffect(() => {
+    if (!isMenuOpened) {
+      setTwoDepthOpenedIdx(null);
+    }
+  }, [isMenuOpened]);
   return (
     <AnimatePresence>
-      {isMenuOpened ? (
+      {isMenuOpened && (
         <motion.div
-          className="menu-area"
+          className="all-menu"
           initial={{ left: '-100%' }}
           animate={{ left: 0 }}
           exit={{ left: '-100%' }}
@@ -56,6 +38,7 @@ function AllMenu({ isMenuOpened }: AllMenuProps) {
           <div className="scroll-area">
             <ul className="one-depth">
               {NAV?.map((oneDepth, oneIndex) => (
+                /* one-depth */
                 <li
                   className={clsx(
                     'one-list',
@@ -73,9 +56,9 @@ function AllMenu({ isMenuOpened }: AllMenuProps) {
                       <i />
                     </button>
                   </div>
-
                   <AnimatePresence>
                     {oneDepth?.children && twoDepthOpenedIdx === oneIndex && (
+                      /* two-depth */
                       <motion.ul
                         className="two-depth"
                         key={`twoDepth${oneIndex}`}
@@ -99,7 +82,7 @@ function AllMenu({ isMenuOpened }: AllMenuProps) {
             </ul>
           </div>
         </motion.div>
-      ) : null}
+      )}
     </AnimatePresence>
   );
 }

@@ -1,12 +1,12 @@
 import { PageTitle } from '@/components';
 import { CONST } from '@/lib/constants';
 
-function GuidePage() {
+function ChartPage() {
   return (
     <>
-      <PageTitle label={CONST.TITLE.GUIDE} />
+      <PageTitle label={CONST.TITLE.CHART} />
     </>
   );
 }
 
-export default GuidePage;
+export default ChartPage;

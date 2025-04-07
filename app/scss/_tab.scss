@@ -1,0 +1,140 @@
+@use "mixin" as *;
+@use "variable" as *;
+
+.box-tab-area {
+  z-index: 5;
+  &.sticky {
+    position: sticky;
+    top: $headerPcHeight;
+    left: 0;
+  }
+  .tabs {
+    display: flex;
+    justify-content: center;
+  }
+  .tabs-wrap {
+    display: flex;
+    justify-content: center;
+  }
+  &:has(.tab-btn.outlined) {
+    background: $white;
+    border-top: 1px solid $gray100;
+    border-bottom: 1px solid $gray100;
+    .tab-btn {
+      &.active {
+        &::before {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 60%;
+          height: 2px;
+          background: $riizeSecondary;
+        }
+      }
+    }
+  }
+  &:has(.tab-btn.box) {
+    margin-bottom: 10rem;
+    .tabs-wrap {
+    }
+    .tab-btn {
+      border-top: 2px solid $gray100;
+      border-left: 2px solid $gray100;border-bottom: 2px solid $gray100;
+      overflow: visible;
+      &:first-child {
+        border-left: 2px solid $gray100;
+      }
+      &:last-child {
+        border-right: 2px solid $gray100;
+      }
+    }
+  }
+  .tab-btn {
+    position: relative;
+    color: $black;
+    &.lg {
+      button {
+        padding: 24rem 64rem;
+        font-size: 24rem;
+      }
+    }
+    &.md {
+      button {
+        padding: 20rem 60rem;
+        font-size: 18rem;
+      }
+    }
+    &.sm {
+      button {
+        padding: 16rem 56rem;
+        font-size: 16rem;
+      }
+    }
+    button {
+      display: block;
+      width: 100%;
+      color: inherit;
+      font-weight: 500;
+    }
+  }
+}
+.tab-panels {
+  margin: 120rem 0;
+  width: 100%;
+  .tab-panel {
+    display: none;
+    width: 100%;
+    &.active {
+      display: block;
+    }
+  }
+}
+
+@include tablet() {
+  .box-tab-area {
+    &.sticky {
+      top: $headerMoHeight;
+    }
+    .tab-btn {
+      &.lg {
+        button {
+          padding: 20rem 28rem;
+          font-size: 16rem;
+        }
+      }
+      &.md {
+        button {
+          padding: 16rem 24rem;
+          font-size: 14rem;
+        }
+      }
+      &.sm {
+        button {
+          padding: 12rem 20rem;
+          font-size: 12rem;
+        }
+      }
+      button {
+        display: block;
+        width: 100%;
+        color: inherit;
+        font-weight: 500;
+        line-height: 1;
+      }
+    }
+  }
+  .tab-panels {
+    margin: 60rem 0;
+  }
+}
+
+@include mobile() {
+  .box-tab-area {
+    .tabs {
+      justify-content: flex-start;
+      padding: 0 24rem 0 24rem;
+    }
+  }
+}
