@@ -4,7 +4,7 @@ import CommonGuideLayout from '../../_components/CommonGuideLayout';
 import TitleArea from '../../_components/TitleArea';
 
 function DetailList() {
-  const contents = CONST.GUIDE_CONTENT.MUSIC_DOWNLOAD_CONTENT;
+  const contents = CONST.GUIDE_CONTENT.STREAMING_LIST_CONTENT;
 
   return (
     <>
