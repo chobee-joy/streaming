@@ -140,10 +140,10 @@ function DetailList() {
   ];
   return (
     <>
-      <TitleArea label="지니 차트" />
+      <TitleArea label="Flo 차트" />
       <CommonChartLayout
-        label="지니 차트"
-        uniqueId="melonChart"
+        label="Flo 차트"
+        uniqueId="floChart"
         tabContent={tabContent}
       />
     </>
