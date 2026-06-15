@@ -53,7 +53,7 @@ import * as TITLE from './title.constant';
 
 export const STREAMING_LIST_CONTENT: CommonContentProps = {
   label: TITLE.STREAMING_LIST,
-  updateDate: '2026.05.05',
+  updateDate: '2026.06.15',
   uniqueId: 'streamingList',
   content: [
     {
@@ -232,8 +232,8 @@ export const MUSIC_VIDEO_GUIDE = [
         image: [MusicVideoGuide, MusicVideoGuideEn],
         links: [
           {
-            link: 'https://youtu.be/yfKBI5l81-A?si=8lfZrlRPzImUuCiB',
-            linkTxt: 'All of You 뮤비 스밍 바로가기',
+            link: 'https://youtu.be/HDGCTtuW-Yo?si=2VtiftXL4--THZeo',
+            linkTxt: 'Do your Dance 뮤비 스밍 바로가기',
           },
         ],
       },
